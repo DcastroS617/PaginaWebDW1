@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    fieldset{
+        width:fit-content;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+const uri = 'https://localhost:44351/api/InformacionPersonal';
+
+function GetConFetch(){
+    var id = $("#cedula").val();
+    fetch(`${uri}/${id}`)
+    .then(response=>response.json())
+    .then(data => $("#contenidoExterno")
+    .html(
+            "<br>"+
+            "<fieldset style:border>"+
+            "<p>Nombre: " + data.nombre+"</p>" +
+            "<p>Apellido: "+ data.primerApellido+ "</p>"+
+            "<p>Sangre: " +data.tipoSangre +"</p>"+
+            "<p>ID: "+ data.idInfoPersonal+ "</p>"+
+            "</fieldset>"))
+    .catch(e => console.error('no se pudo', e));  
+}
+function GetId(){
+    var cedula = $('#cedula').val();
+    fetch(`${uri}/${cedula}`)
+    .then(response => response.json())
+    .then(function(data){
+        document.getElementById('IdPersona').value = data.idInfoPersonal;       
+    })   
+    .catch(e => console.error('no se pudo', e));
+    //$('#IdPersona').html('<p> Id Persona: '+RecorrerArray()+'</p>');
+}
+function MultipleTransaccion(){
+    GetConFetch();
+    GetId();
+}
+function PrintValue(){
+    var id = document.getElementById('IdPersona');
+    var tog = document.getElementById('elemento');
+    if(tog.style.display == 'none'){
+        id.hidden = false;
+        tog.style.display = 'block';
+        
+    } else {
+        id.hidden = true;
+        tog.style.display = 'none';        
+    }
+}
+</script>
+<body>
+    <form action="javascript:void(0);" method="get" id="formBuscar">
+    <label for="cedula">Introduzca la cedula</label> <br>
+    <input type="text" name="cedula" id="cedula">
+    <button type="submit" onclick="MultipleTransaccion()">Buscar</button>
+    </form>
+    <br><button type="button" onclick="PrintValue()">Revisar si sigue ahi el id</button>
+    <div id="elemento"><br><input type="text" id="IdPersona" disabled hidden></div>
+    <div id="contenidoExterno"></div>  
+</body>
+</html>

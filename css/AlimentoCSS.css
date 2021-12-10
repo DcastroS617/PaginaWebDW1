@@ -1,0 +1,16 @@
+#Cerrar{
+    color: white;
+    margin: 2px;
+}
+
+#Cerrar:hover{
+    color: black;
+}
+
+#Buscar{
+    margin: 2px;
+}
+
+.Separacion{
+    margin: 5px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/ArticuloClass.js"></script>
+    <link rel="stylesheet" href="css/AlimentoCSS.css">
+    <title>Pet Paradise</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Pet Paradise</h1>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="MenuPrincipal.html">Menú Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Alimento.html">Alimentos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Articulo.html">Articulos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Iniciar Sesión</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control ml-sm-2" type="text" placeholder="Buscar" id="TextoBuscar">
+                </form>
+                <a onclick="MostrarArticulo()" id="Cerrar" class="btn btn-outline-light" hidden>&#10005;</a>
+                <button class="btn btn-outline-light my-2 my-sm-0" onclick="BuscarArticuloPorTitulo()"
+                    id="Buscar">Buscar</button>
+            </div>
+        </nav>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h2 id="TituloArticuloPerro" hidden></h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div id="ArticuloPerro" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4" hidden>
+                </div>
+            </div>
+            <br>
+            <hr hidden>
+            <div class="row">
+                <div class="col">
+                    <h2 id="TituloArticuloGato" hidden></h2>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div id="ArticuloGato" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4" hidden>
+                </div>
+            </div>
+            <br>
+            <hr hidden>
+            <div class="row">
+                <div class="col">
+                    <h2 id="TituloArticuloRoedor" hidden></h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div id="ArticuloRoedor" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4" hidden>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <br class="BrEspecial">
+                    <h2 id="TituloBuscar" hidden></h2>
+                </div>
+            </div>
+            <div class="row">
+                <br class="BrEspecial">
+                <div id="Resultado" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4" hidden></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
