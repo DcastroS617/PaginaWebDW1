@@ -8,16 +8,17 @@
     <title>Pet Paradise</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/general.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/MenuClass.js"></script>
-    <script src="js/VentaClass.js"></script>
     <script>
-    var login = localStorage.getItem("Login");
-    console.log(login); </script>
+        var login = localStorage.getItem("Login");
+        console.log(login);</script>
 </head>
 
 <body>
-    <div class="container-fluid">
+
+    <header>
         <div class="text-center">
             <h1>Pet Paradise</h1>
         </div>
@@ -43,11 +44,14 @@
                 </ul>
             </div>
         </nav>
+    </header>
+    <div class="container-fluid">
+
         <div class="container">
             <br>
             <h2 id="TituloAlimento"></h2>
             <br>
-            
+
             <div id="Alimento" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4"></div>
             <br>
             <hr>
