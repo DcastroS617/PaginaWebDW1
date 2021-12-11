@@ -10,11 +10,17 @@ $(document).ready(function () {
 //ESTA SERIA LA DE ALIMENTOS DISPONIBLES
 function TarjetaAlimentoDisplay() {
   var tarjetaAlimento = "";
+  
+  //TRAER TODOS LOS ALIMENTOS
   $.get("https://desarrollowebapi.azurewebsites.net/api/Alimento/", function (respuesta) {
     console.log(respuesta);
     $("#TituloAlimento").html("Alimentos de Animales");
     respuesta.forEach(item => {
+
+      //TRAER EL PROVEEDOR DEL ALIMENTO BASADO EN EL ID DEL PROVEEDOR
       $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+
+        //TRAER LA IMAGEN DEL ALIMENTO BASADO EN EL ID DEL ARCHIVO
         $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
           tarjetaAlimento +=
             "<div class='col-lg-6 col-md-6 col-sm-12 mb-3'>" +
@@ -44,20 +50,20 @@ function TarjetaArticuloDisplay() {
     respuesta.forEach(item => {
       $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
         $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
-        tarjetaArticulo +=
-          "<div class='col-lg-6 col-md-6 col-sm-12 mb-3'>" +
-          "<div class='card' style='width: 100%;'>" +
-          "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.nombre_Articulo + "'>" +
-          "<div class='card-body'>" +
-          "<h5 class='card-title'>Tipo: " + item.nombre_Articulo + "</h5>" +
-          "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
-          "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-          `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
-          "</div>" +
-          "</div>" +
-          "</div>";
-        $("#Articulo").html(tarjetaArticulo);
-    });
+          tarjetaArticulo +=
+            "<div class='col-lg-6 col-md-6 col-sm-12 mb-3'>" +
+            "<div class='card' style='width: 100%;'>" +
+            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.nombre_Articulo + "'>" +
+            "<div class='card-body'>" +
+            "<h5 class='card-title'>Tipo: " + item.nombre_Articulo + "</h5>" +
+            "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
+            "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
+            `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
+            "</div>" +
+            "</div>" +
+            "</div>";
+          $("#Articulo").html(tarjetaArticulo);
+        });
       });
     });
   });

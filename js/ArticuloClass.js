@@ -7,11 +7,14 @@ $(document).ready(function () {
 
 function TarjetaArticuloPerroDisplay() {
     var tarjetaArticulo = "";
+    //TRAER TODOS LOS ARTICULOS
     $.get("https://desarrollowebapi.azurewebsites.net/api/Articulo/", function (respuesta) {
         console.log(respuesta);
         $("#TituloArticuloPerro").html("Articulos Para Caninos");
         respuesta.forEach(item => {
+            //TRAER EL PROVEEDOR DEL ARTICULO BASADO EN EL ID DEL PROVEEDOR
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+                //TRAER LA IMAGEN DEL ARTICULO BASADO EN EL ID DEL ARCHIVO
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Perro") {
                         tarjetaArticulo +=
@@ -36,11 +39,14 @@ function TarjetaArticuloPerroDisplay() {
 
 function TarjetaArticuloGatoDisplay() {
     var tarjetaArticulo = "";
+    //TRAER TODOS LOS ARTICULOS
     $.get("https://desarrollowebapi.azurewebsites.net/api/Articulo/", function (respuesta) {
         console.log(respuesta);
         $("#TituloArticuloGato").html("Articulos Para Felinos");
         respuesta.forEach(item => {
+            //TRAER EL PROVEEDOR DEL ARTICULO BASADO EN EL ID DEL PROVEEDOR
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+                //TRAER LA IMAGEN DEL ARTICULO BASADO EN EL ID DEL ARCHIVO
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Gato") {
                         tarjetaArticulo +=
@@ -65,11 +71,14 @@ function TarjetaArticuloGatoDisplay() {
 
 function TarjetaArticuloRoedorDisplay() {
     var tarjetaArticulo = "";
+    //TRAER TODOS LOS ARTICULOS
     $.get("https://desarrollowebapi.azurewebsites.net/api/Articulo/", function (respuesta) {
         console.log(respuesta);
         $("#TituloArticuloRoedor").html("Articulos Para Roedores");
         respuesta.forEach(item => {
+            //TRAER EL PROVEEDOR DEL ARTICULO BASADO EN EL ID DEL PROVEEDOR
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+                //TRAER LA IMAGEN DEL ARTICULO BASADO EN EL ID DEL ARCHIVO
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Roedor") {
                         tarjetaArticulo +=
@@ -123,10 +132,14 @@ function BuscarArticuloPorTitulo() {
     $("#TituloBuscar").prop("hidden", false);
     var textoBuscar = $("#TextoBuscar").val();
     var tarjeta = "";
+
+    //TRAER TODOS LOS ARTICULOS BASADOS EN EL NOMBRE
     $.get("https://desarrollowebapi.azurewebsites.net/api/Articulo/Busqueda/" + textoBuscar, function (respuesta) {
         $("#TituloBuscar").html("Resultados de la Búsqueda");
         respuesta.forEach(item => {
+            //TRAER EL PROVEEDOR DEL ARTICULO BASADO EN EL ID DEL PROVEEDOR
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+                //TRAER LA IMAGEN DEL ARTICULO BASADO EN EL ID DEL ARCHIVO
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     tarjeta +=
                         "<div class='col-lg-6 col-md-6 col-sm-12'>" +

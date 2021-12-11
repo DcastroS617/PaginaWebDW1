@@ -21,7 +21,7 @@ function ComprarArticulo(ArticuloId) {
             usuarioId: usuarioId
         };
 
-        //Post a la entidad de venta!, esta funcionalidad todavia esta en prueba, pero el post si lo hace.
+        //Post a la entidad de venta!
         fetch(url, {
             method: "POST",
             headers: {
@@ -58,7 +58,7 @@ function ComprarAlimento(AlimentoId) {
             usuarioId: usuarioId
         };
 
-        //Post a la entidad de venta!, esta funcionalidad todavia esta en prueba, pero el post si lo hace.
+        //Post a la entidad de venta!
         fetch(url, {
             method: "POST",
             headers: {
