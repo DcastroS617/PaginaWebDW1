@@ -1,0 +1,25 @@
+@import 'AlimentoCSS.css';
+
+body {
+  background: url('../Imgs/pattern.png');
+  background-repeat: repeat;
+  background-position: center center;
+}
+.text-center h1 {
+  padding: 20px;
+  font-size: 4rem;
+  width: 100%;
+  background: white;
+  margin-bottom: 0px;
+}
+header {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+z-index: 999;
+}
+.img_style {
+    height: 15rem;
+    object-fit: contain;
+    padding: 10px;
+}
