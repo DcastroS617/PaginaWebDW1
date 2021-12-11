@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    $.ajaxSetup({
-        headers:{
-           'Origin': "*"
-        }
-     });
     TarjetaArticuloPerroDisplay();
     TarjetaArticuloGatoDisplay();
     TarjetaArticuloRoedorDisplay();
@@ -27,7 +22,7 @@ function TarjetaArticuloPerroDisplay() {
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -56,7 +51,7 @@ function TarjetaArticuloGatoDisplay() {
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -85,7 +80,7 @@ function TarjetaArticuloRoedorDisplay() {
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -141,7 +136,7 @@ function BuscarArticuloPorTitulo() {
                         "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                         "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                         "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                        "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                        `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                         "</div>" +
                         "</div>" +
                         "</div>";

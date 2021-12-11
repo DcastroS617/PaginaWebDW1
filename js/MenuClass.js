@@ -24,7 +24,7 @@ function TarjetaAlimentoDisplay() {
             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+            `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
             "</div>" +
             "</div>" +
             "</div>";
@@ -52,7 +52,7 @@ function TarjetaArticuloDisplay() {
           "<h5 class='card-title'>Tipo: " + item.nombre_Articulo + "</h5>" +
           "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
           "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-          "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+          `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
           "</div>" +
           "</div>" +
           "</div>";

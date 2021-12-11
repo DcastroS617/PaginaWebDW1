@@ -1,6 +1,4 @@
-$(document).ready(function () {
-    LlenarTablaCarrito();
-});
+
 
 function ComprarArticulo(ArticuloId) {
     var login = localStorage.getItem("Login");
@@ -77,42 +75,16 @@ function ComprarAlimento(AlimentoId) {
     }
 }
 
-function LlenarTablaCarrito() {
-    $("#TablaCarrito > tbody").empty();
-    var filaArticulo = "";
-    var filaAlimento = "";
+
+function Comprar() {
     var usuario = localStorage.getItem("IdUsuario");
-    $.get("https://desarrollowebapi.azurewebsites.net/api/Venta/" + usuario, function (Venta) {
-        console.log(Venta);
-        Venta.forEach(item => {
-            if (item.alimentoId != null) {
-                console.log(item.alimentoId);
-                $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.alimentoId, function (Proveedor) {
-                    $.get("https://desarrollowebapi.azurewebsites.net/api/Alimento/Get/" + item.alimentoId, function (Alimento) {
-                        filaAlimento +=
-                            "<tr>" +
-                            "<td>" + Alimento.titulo_Alimento + "</td>" +
-                            "<td>" + Proveedor.nombre + "</td>" +
-                            "<td>" + Alimento.precio_Alimento + "</td>" +
-                            "</tr>";
-                        $("#TablaCarrito > tbody").append(filaAlimento);
-                    });
-                });
-            }
-            if (item.articuloId != null) {
-                console.log(item.articuloId);
-                $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.articuloId, function (Proveedor) {
-                    $.get("https://desarrollowebapi.azurewebsites.net/api/Articulo/Get/" + item.articuloId, function (Articulo) {
-                        filaArticulo +=
-                            "<tr>" +
-                            "<td>" + Articulo.nombre_Articulo + "</td>" +
-                            "<td>" + Proveedor.nombre + "</td>" +
-                            "<td>" + Articulo.precio_Articulo + "</td>" +
-                            "</tr>";
-                        $("#TablaCarrito > tbody").append(filaArticulo);
-                    });
-                });
-            }
+    alert("Has realizado la compra!");
+    window.location = "MenuPrincipal.html";
+    try {
+        $.get("https://desarrollowebapi.azurewebsites.net/api/Venta/Delete/" + usuario, function (respuesta) {          
         });
-    })
+    } catch (error) {
+        console.log(error);
+    }
+
 }

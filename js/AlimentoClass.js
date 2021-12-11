@@ -23,7 +23,7 @@ function TarjetaAlimentoPerroDisplay() {
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -52,7 +52,7 @@ function TarjetaAlimentoGatoDisplay() {
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -81,7 +81,7 @@ function TarjetaAlimentoRoedorDisplay() {
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                            `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -128,7 +128,6 @@ function BuscarPorTitulo() {
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     tarjeta +=
-                        "<div class='row'>" +
                         "<div class='col-lg-6 col-md-6 col-sm-12'>" +
                         "<div class='card' style='width: 100%;'>" +
                         "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
@@ -136,7 +135,7 @@ function BuscarPorTitulo() {
                         "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                         "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                         "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                        "<a href='#' class='btn btn-secondary'>Comprar</a>" +
+                        `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-secondary'>Comprar</a>` +
                         "</div>" +
                         "</div>" +
                         "</div>";
