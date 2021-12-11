@@ -16,7 +16,7 @@ function Login() {
   })
     .then(respuesta => {
       if (respuesta.status === 204) {
-        //window.location = "MenuPrincipal.html";
+        window.location = "MenuPrincipal.html";
         $.get("https://desarrollowebapi.azurewebsites.net/api/Usuario/Get/"+ tel, function(usuario){
           console.log(usuario.result);
           localStorage.setItem("Login", "true");

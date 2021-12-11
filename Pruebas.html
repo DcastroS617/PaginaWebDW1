@@ -9,31 +9,32 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/VentaClass.js"></script>
+    <link rel="stylesheet" href="css/AlimentoCSS.css">
     <title>Pruebas</title>
 </head>
 
 <body>
-    <div id="img1">
-        <!--<img src="http://127.0.0.1:8887/EsferaHamsterXL.jpg" alt="">-->
-    </div>
+
     <h2 id="TituloArticuloPerro"></h2>
     <br>
     <div id="ArticuloPerro" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4"></div>
+    <br>
 
+    <h2 id="TituloAlimentoPerro" hidden></h2>
 
-
-
-
-
+    <div id="AlimentoPerro" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4" hidden>
+    </div>
 
     <script>
         $(document).ready(function () {
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor", function (data) {
                 console.log(data);
             });
+            TarjetaAlimentoPerroDisplay();
             TarjetaArticuloPerroDisplay();
+
         });
-        
+
         function TarjetaArticuloPerroDisplay() {
             var tarjetaArticulo = "";
 
@@ -48,7 +49,7 @@
 
                         //buscar la imagen que corresponde a el articulo
                         $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
-                            if (item.tipo_Articulo === "Perro") {
+                            if (item.tipo_Articulo === "Roedor") {
                                 tarjetaArticulo +=
                                     "<div class='col-sm-10 col-lg-6'>" +
                                     "<div class='card h-100' style='width: 34rem;'>" +
@@ -57,13 +58,49 @@
                                     "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                                     "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                                     "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                                    `<a onclick='ComprarArticulo(${item.id})' class='btn btn-primary Comprar'>Comprar</a>` +
+                                    `<a onclick='ComprarArticulo(${item.id})' class='Comprar btn btn-outline-dark'>Comprar</a>` +
                                     "</div>" +
                                     "</div>" +
                                     "</div>" +
                                     "</div>";
                                 $("#ArticuloPerro").html(tarjetaArticulo);
                             }
+                        });
+                    });
+                });
+            });
+        }
+
+        function TarjetaAlimentoPerroDisplay() {
+            var tarjetaAlimento = "";
+
+            //Traer todos los articulos
+            $.get("https://desarrollowebapi.azurewebsites.net/api/Alimento/", function (respuesta) {
+                console.log(respuesta);
+                $("#TituloAlimentoPerro").html("Alimentos Para Caninos");
+                respuesta.forEach(item => {
+
+                    //buscar a que proveedor pertenece el articulo
+                    $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
+
+                        //buscar la imagen que corresponde a el articulo
+                        $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
+                            //if (item.tipo_Alimento === "Perro") {
+                                tarjetaAlimento +=
+                                    "<div class='col-sm-10 col-lg-6'>" +
+                                    "<div class='card h-100' style='width: 34rem;'>" +
+                                    "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                                    "<div class='card-body'>" +
+                                    "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
+                                    "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
+                                    "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
+                                    `<a onclick='ComprarAlimento(${item.id})' class='Comprar btn btn-outline-dark'>Comprar</a>` +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</div>";
+                                $("#AlimentoPerro").html(tarjetaAlimento);
+                            //}
                         });
                     });
                 });
@@ -77,11 +114,11 @@
             console.log(ArticuloId);
             console.log(usuarioId);
             if (login === "true") {
-                alert("Si estas logueado");
+
                 const url = "https://desarrollowebapi.azurewebsites.net/api/Venta";
                 var date = new Date();
-                var mes = (parseInt(date.getMonth() + 1) > 10 ? parseInt(date.getMonth() + 1) : '0' + parseInt(date.getMonth() + 1));
-                var dia = (parseInt(date.getDate()) > 10 ? date.getDate() : '0' + date.getDate());
+                var mes = (parseInt(date.getMonth() + 1) >= 10 ? parseInt(date.getMonth() + 1) : '0' + parseInt(date.getMonth() + 1));
+                var dia = (parseInt(date.getDate()) >= 10 ? date.getDate() : '0' + date.getDate());
                 var definitivo = date.getFullYear() + '-' + mes + '-' + dia;
                 console.log(definitivo);
                 const item = {
@@ -100,9 +137,46 @@
                     },
                     body: JSON.stringify(item)
                 })
-                .then(respuesta => respuesta.json())
-                .then(()=> console.log("Se realizo la compra"))
-                .catch(error => console.error("No se pudo realizar la compra", error));             
+                    .then(respuesta => respuesta.json())
+                    .then(() => alert("Se añadio el producto al carrito de compras!"))
+                    .catch(error => console.error("No se pudo realizar la compra", error));
+            } else {
+                alert("Debes iniciar sesión para realizar la compra!");
+            }
+        }
+
+        function ComprarAlimento(AlimentoId) {
+            var login = localStorage.getItem("Login");
+            var usuarioId = localStorage.getItem("IdUsuario");
+            console.log(login);
+            console.log(AlimentoId);
+            console.log(usuarioId);
+            if (login === "true") {
+                const url = "https://desarrollowebapi.azurewebsites.net/api/Venta";
+                var date = new Date();
+                var mes = (parseInt(date.getMonth() + 1) >= 10 ? parseInt(date.getMonth() + 1) : '0' + parseInt(date.getMonth() + 1));
+                var dia = (parseInt(date.getDate()) >= 10 ? date.getDate() : '0' + date.getDate());
+                var definitivo = date.getFullYear() + '-' + mes + '-' + dia;
+                console.log(definitivo);
+                const item = {
+                    fecha_Venta: definitivo,
+                    alimentoId: AlimentoId,
+                    articuloId: null,
+                    usuarioId: usuarioId
+                };
+
+                //Post a la entidad de venta!, esta funcionalidad todavia esta en prueba, pero el post si lo hace.
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(item)
+                })
+                    .then(respuesta => respuesta.json())
+                    .then(() => alert("Se añadio el producto al carrito de compras!"))
+                    .catch(error => console.error("No se pudo realizar la compra", error));
             } else {
                 alert("Debes iniciar sesión para realizar la compra!");
             }
