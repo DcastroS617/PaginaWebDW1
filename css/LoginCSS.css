@@ -1,42 +1,57 @@
+#main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
 #field {
-    width: max-content;
-    border: black solid 1px;
-    border-radius: 4px;
-    padding: 17px;
+  width: max-content;
+  border: black solid 1px;
+  border-radius: 4px;
+  padding: 17px;
 }
 
 #btnSub {
-    position: relative;
-    left: 54%;
-    margin-top: 3%;
-    padding: 2% 2%;
-    background-color: white;
-    border-radius: 4px;
-    border: black solid 1px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 #login {
-    position: relative;
-    left: 55%;
-    margin-top: 15%;
-    height: max-content;
-    width: max-content;
-    display: inline-block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0 2rem 0 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 #titulo {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
-#PicPata {
-    position: relative;
-    margin-top: 18%;
-    display: inline-block;
-    vertical-align: top;
+.sideLeft {
+  min-height: 100vh;
+  background: url('../Imgs/pattern.png');
+  background-repeat: repeat;
+  background-position: center center;
 }
-
-.no-padding{
-    padding: 0px !important;
+.sideLeftContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('../Imgs/pattern.png');
+  background-repeat: repeat;
+  background-position: center center;
+}
+.sideRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  box-shadow: -5px 0 10px 0px rgba(0, 0, 0, 0.2);
+}
+.no-padding {
+  padding: 0px !important;
 }
