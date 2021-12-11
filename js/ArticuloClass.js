@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    $.ajaxSetup({
+        headers:{
+           'Origin': "*"
+        }
+     });
     TarjetaArticuloPerroDisplay();
     TarjetaArticuloGatoDisplay();
     TarjetaArticuloRoedorDisplay();
@@ -15,15 +20,14 @@ function TarjetaArticuloPerroDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Perro") {
                         tarjetaArticulo +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
-                            "</div>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -45,15 +49,14 @@ function TarjetaArticuloGatoDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Gato") {
                         tarjetaArticulo +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
-                            "</div>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -75,15 +78,14 @@ function TarjetaArticuloRoedorDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Articulo === "Roedor") {
                         tarjetaArticulo +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
-                            "</div>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -132,15 +134,14 @@ function BuscarArticuloPorTitulo() {
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     tarjeta +=
-                        "<div class='col-sm-10 col-lg-6'>" +
-                        "<div class='card h-100' style='width: 24rem;'>" +
-                        "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                        "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                        "<div class='card' style='width: 100%;'>" +
+                        "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                         "<div class='card-body'>" +
                         "<h5 class='card-title'>" + item.nombre_Articulo + "</h5>" +
                         "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                         "<p class='card-text'>Precio: " + item.precio_Articulo + "</p>" +
-                        "<a id='Comprar' class='btn btn-primary'>Comprar</a>" +
-                        "</div>" +
+                        "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                         "</div>" +
                         "</div>" +
                         "</div>";

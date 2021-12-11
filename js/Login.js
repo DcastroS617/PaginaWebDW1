@@ -16,19 +16,17 @@ function Login() {
   })
     .then(respuesta => {
       if (respuesta.status === 204) {
-        window.location = "MenuPrincipal.html";
-        $.get("https://desarrollowebapi.azurewebsites.net/api/Usuario/Get/"+ tel, function(usuario){
+        $.get("https://desarrollowebapi.azurewebsites.net/api/Usuario/Get/" + tel, function (usuario) {
           console.log(usuario.result);
           localStorage.setItem("Login", "true");
           localStorage.setItem("IdUsuario", usuario.result.id);
+          window.location = "MenuPrincipal.html";
         });
-        
       } else {
         alert('No se pudo autenticar el usuario.');
         localStorage.setItem("Login", "false");
       }
     })
-    .then(() => { tel = ""; con = "" })
-    .catch(error => console.error("No se pudo realizar la accion", error)); 
+    .then(() => { tel.value = ""; con.value = "" })
+    .catch(error => console.error("No se pudo realizar la accion", error));
 }
-

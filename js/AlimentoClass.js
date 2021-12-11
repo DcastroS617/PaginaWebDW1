@@ -16,14 +16,14 @@ function TarjetaAlimentoPerroDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Alimento === "Perro") {
                         tarjetaAlimento +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -45,14 +45,14 @@ function TarjetaAlimentoGatoDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Alimento === "Gato") {
                         tarjetaAlimento +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -74,14 +74,14 @@ function TarjetaAlimentoRoedorDisplay() {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     if (item.tipo_Alimento === "Roedor") {
                         tarjetaAlimento +=
-                            "<div class='col-sm-10 col-lg-6'>" +
-                            "<div class='card h-100' style='width: 24rem;'>" +
-                            "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                            "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                            "<div class='card' style='width: 100%;'>" +
+                            "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                             "<div class='card-body'>" +
                             "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                             "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                             "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                            "<a href='#' class='btn btn-primary'>Comprar</a>" +
+                            "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -128,22 +128,22 @@ function BuscarPorTitulo() {
             $.get("https://desarrollowebapi.azurewebsites.net/api/Proveedor/" + item.proveedorId, function (proveedor) {
                 $.get("https://desarrollowebapi.azurewebsites.net/api/Archivo/" + item.archivoId, function (imagen) {
                     tarjeta +=
-                        "<div class='col-sm-10 col-lg-6'>" +
-                        "<div class='card h-100' style='width: 24rem;'>" +
-                        "<img class='card-img-top' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
+                        "<div class='row'>" +
+                        "<div class='col-lg-6 col-md-6 col-sm-12'>" +
+                        "<div class='card' style='width: 100%;'>" +
+                        "<img class='card-img-top img_style' src='" + imagen.ubicacion + "' alt='" + item.tipo_Alimento + "'>" +
                         "<div class='card-body'>" +
                         "<h5 class='card-title'>" + item.titulo_Alimento + "</h5>" +
                         "<p class='card-subtitle'>Proveedor: " + proveedor.nombre + "</p>" +
                         "<p class='card-text'>Precio: " + item.precio_Alimento + "</p>" +
-                        "<a href='#' class='btn btn-primary'>Comprar</a>" +
+                        "<a href='#' class='btn btn-secondary'>Comprar</a>" +
                         "</div>" +
                         "</div>" +
                         "</div>";
-                    $("#Resultado").html(tarjeta);
+                        $("#Resultado").html(tarjeta);
                 });
             });
         });
-        $("#TextoBuscar").text("");
     });
 }
 
