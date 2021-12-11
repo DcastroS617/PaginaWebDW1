@@ -29,6 +29,6 @@ function Login() {
       }
     })
     .then(() => { tel = ""; con = "" })
-    .catch(error => console.error("No se pudo realizar la accion", error));
+    .catch(error => console.error("No se pudo realizar la accion", error)); 
 }
 
