@@ -22,47 +22,110 @@
 
 
 <body>
-    <div class="container-full" id="main_container2">
+    <div class="container-fluid" id="main_container2">
         <div class="row no-padding">
             <div class="sideLeft col-lg-8 d-none d-lg-block">
                 <div class="sideLeftContainer">
-                <div id="titulo">
-                    <h2>BIENVENIDO A PET PARADISE!</h2>
-                </div>
-                <div id="PicPata" class="containter no-padding">
-                    <img src="Imgs/pataSola.png" alt="Patita">
-                </div>
+                    <div id="titulo">
+                        <h2>BIENVENIDO A PET PARADISE!</h2>
+                    </div>
+                    <div id="PicPata" class="containter no-padding">
+                        <img src="Imgs/pataSola.png" alt="Patita">
+                    </div>
                 </div>
             </div>
-            <div class="sideRight col-lg-4 col-sm-12">
-                <div id="login" class="container">
-                   
-                    <div class="d-lg-none d-md-block d-sm-block text-center mb-5">
-                        <div id="titulo2">
-                            <h2>BIENVENIDO A PET PARADISE!</h2>
-                        </div>
-                        <div id="PicPata2" class="containter no-padding">
-                            <img src="Imgs/pataSola.png" alt="Patita">
-                        </div>
-                    </div>
+            <div class="sideRight col-lg-4 col-sm-6">
+                <div id="login" class="container-fluid">
+
+
 
                     <h3>Inicia Sesión!</h3>
 
-                    <form action="javascript:void(0);" method="post" id="Login" onsubmit="Login()">
+
+                    <div class="form-group no-padding">
+                        <label for="Telefono">Teléfono</label>
+                        <input type="text" class="form-control" id="Telefono" placeholder="Número de teléfono">
+                    </div>
+                    <div class="form-group no-padding">
+                        <label for="Contrasena">Contraseña</label>
+                        <input type="password" class="form-control" id="Contrasena" placeholder="Contraseña">
+                    </div>
+                    <button type="button" id="btnSub" class="btn btn-secondary" onclick="Login()">Iniciar
+                        Sesion</button>
+                    <br>
+                    <div class="text-center mt-2">
+                        <a href="javascript:AbrirRegistrar()">¡Haz Click aqui para Registrarte!</a>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a href="javascript:AbrirContrasena()">¿Olvidaste tu Contraseña?</a>
+                    </div>
+                    <div id="RegistrarForm" hidden>
                         <div class="form-group">
-                            <label for="Telefono">Teléfono</label>
-                            <input type="text" class="form-control" id="Telefono" placeholder="Número de teléfono">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control" id="NombreUsuario" alt="NombreUsuario"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="Apellido">Apellido</label>
+                            <input type="text" class="form-control" id="ApellidoUsuario" alt="ApellidoUsuario"
+                                placeholder="Primer Apellido">
                         </div>
                         <div class="form-group">
                             <label for="Contrasena">Contraseña</label>
-                            <input type="password" class="form-control" id="Contrasena" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="ContrasenaUsuario"
+                                alt="ContrasenaNuevoUsuario" placeholder="Contraseña">
                         </div>
-                        <button type="submit" id="btnSub" class="btn btn-secondary">Iniciar Sesion</button>
-                    </form>
+                        <div class="form-group">
+                            <label for="TelefonoUsuario">Teléfono</label>
+                            <input type="text" class="form-control" id="TelefonoUsuario" alt="TelefonoUsuario"
+                                placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="CorreoUsuario">Correo</label>
+                            <input type="text" class="form-control" id="CorreoUsuario" alt="CorreoUsuario"
+                                placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="DireccionUsuario">Dirección</label>
+                            <input type="text" class="form-control" id="DireccionUsuario" alt="DireccionUsuario"
+                                placeholder="Dirección">
+                        </div>
+                        <button type="button" id="btnCancelar" class="btn btn-secondary"
+                            onclick="CerrarRegistrar()">Cancelar</button>
+                        <button type="button" id="btnRegistrarse" class="btn btn-success"
+                            onclick="GuardarCliente()">Registrarse</button>
+                    </div>
+                    <div id="FormContrasena" hidden>
+                        <div class="form-group">
+                            <p class="mt-2">Introduce tu teléfono para verificar si existe tu usuario</p>
+                            <label for="Nombre">Teléfono</label>
+                            <input type="text" class="form-control" id="TelefonoContrasena" alt="TelefonoUsuario"
+                                placeholder="Teléfono">
+                        </div>
+                        <button type="button" id="btnCerrarCon" class="btn btn-secondary"
+                            onclick="CerrarContrasena()">Cancelar</button>
+                        <button type="button" id="btnVerificar" class="btn btn-success"
+                            onclick="VerificarTelefono()">Verificar</button>
+
+                        <div id="InputContrasena" hidden>
+                            <div class="input-group mb-3 mt-2">
+                                <input type="password" class="form-control" placeholder="Contraseña"
+                                    aria-label="Recipient's username" id="ContrasenaVerificada">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" id="btnContrasena"
+                                        onclick="ShowPassword()">Revelar
+                                        Contraseña</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        
+    </script>
     <script src="js/Login.js"></script>
 </body>
 

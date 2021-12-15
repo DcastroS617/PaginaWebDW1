@@ -12,14 +12,71 @@ body {
   background: white;
   margin-bottom: 0px;
 }
-header {
-  position: -webkit-sticky; /* Safari */
+.navbar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-z-index: 999;
+  z-index: 999;
 }
 .img_style {
-    height: 15rem;
-    object-fit: contain;
-    padding: 10px;
+  height: 15rem;
+  object-fit: contain;
+  padding: 10px;
+}
+.img_slide {
+  width: 100%;
+  object-fit: cover;
+  height: 100vh;
+}
+.container_background {
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.banner {
+  background-image: url(../Imgs/mascotas-en-navidad.jpg);
+  background-size: cover;
+ 
+}
+.banner div {
+  height: 100vh;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 198, 75, 0.5);
+}
+.banner div h1 {
+  background-color: transparent;
+  font-size: 10rem;
+  color: white;
+  
+}
+.banner div p {
+  background-color: transparent;
+  font-size: 2rem;
+  color: white;
+
+}
+.banner2 div {
+  padding: 20px;
+  height: 30vh;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 198, 75, 0.5);
+}
+.banner2 div h1 {
+  background-color: transparent;
+  font-size: 7rem;
+  color: white;
+  padding-bottom: 0;
+  
+}
+.banner2 div p {
+  background-color: transparent;
+  font-size: 2rem;
+  color: white;
+
 }
